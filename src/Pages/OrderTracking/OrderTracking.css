@@ -1,0 +1,367 @@
+/* === ORDER TRACKING STYLES === */
+
+.tracking-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.tracking-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tracking-card h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.order-date {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+/* === TIMELINE === */
+.tracking-timeline {
+  margin-bottom: 40px;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.timeline-dot.completed {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: white;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  width: 2px;
+  height: 30px;
+  background: #ddd;
+  transition: background 0.3s ease;
+}
+
+.timeline-line.completed {
+  background: #4caf50;
+}
+
+.timeline-content {
+  margin-left: 20px;
+  flex: 1;
+}
+
+.timeline-content h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.timeline-date {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* === ORDER DETAILS === */
+.order-details {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.order-details h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.order-details p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.order-details strong {
+  color: #333;
+}
+
+/* === ORDER ITEMS === */
+.order-items {
+  margin-top: 30px;
+}
+
+.order-items h2 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.item-row img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-title {
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.item-author {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.item-qty {
+  color: #666;
+  margin: 0;
+  min-width: 120px;
+}
+
+.item-price {
+  font-weight: 600;
+  color: #4caf50;
+  margin: 0;
+  min-width: 120px;
+  text-align: right;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .tracking-card {
+    padding: 20px;
+  }
+
+  .tracking-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .item-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-qty,
+  .item-price {
+    min-width: auto;
+    text-align: left;
+  }
+
+  .timeline-item {
+    margin-bottom: 20px;
+  }
+}
+
+.error {
+  color: #f44336;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* === CANCEL BUTTON & MODAL === */
+.cancel-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #d32f2f;
+}
+
+.cancel-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.modal-content > p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.reason-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.reason-btn {
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.reason-btn:hover {
+  border-color: #f44336;
+  background-color: #fff5f5;
+}
+
+.reason-btn.selected {
+  border-color: #f44336;
+  background-color: #ffebee;
+  font-weight: 600;
+  color: #f44336;
+}
+
+.custom-reason {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.custom-reason:focus {
+  outline: none;
+  border-color: #f44336;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-cancel,
+.btn-confirm {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-confirm {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #d32f2f;
+}
+
+.btn-confirm:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

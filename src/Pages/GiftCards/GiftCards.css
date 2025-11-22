@@ -1,0 +1,13 @@
+.giftcards-page {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.giftcards-page h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.giftcards-page p {
+  margin: 8px 0;
+  color: #444;
+}

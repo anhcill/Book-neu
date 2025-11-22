@@ -1,0 +1,171 @@
+.vnpay-debug-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.vnpay-debug-container h1 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.button-group button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button-group button:hover:not(:disabled) {
+  background: #2980b9;
+}
+
+.button-group button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+}
+
+.debug-result {
+  background: #ecf0f1;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.debug-result h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.debug-result pre {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+.url-test {
+  margin-top: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.url-test a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #27ae60;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+.url-test a:hover {
+  background: #229954;
+}
+
+.url-test textarea {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+}
+
+.recommendations {
+  background: #fff3cd;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  border-left: 4px solid #ffc107;
+}
+
+.recommendations h3 {
+  margin-top: 0;
+  color: #856404;
+}
+
+.recommendations ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.recommendations li {
+  margin: 0.5rem 0;
+  color: #856404;
+}
+
+.info-box {
+  background: #d1ecf1;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #17a2b8;
+  margin-bottom: 2rem;
+}
+
+.info-box h3 {
+  margin-top: 0;
+  color: #0c5460;
+}
+
+.info-box ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.info-box li {
+  margin: 0.5rem 0;
+  color: #0c5460;
+}
+
+.error-codes {
+  background: #f8d7da;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #dc3545;
+}
+
+.error-codes h3 {
+  margin-top: 0;
+  color: #721c24;
+}
+
+.error-codes table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 1rem;
+}
+
+.error-codes th,
+.error-codes td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.error-codes th {
+  background: #721c24;
+  color: white;
+  font-weight: 600;
+}
+
+.error-codes tr:hover {
+  background: #f5f5f5;
+}

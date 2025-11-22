@@ -1,0 +1,136 @@
+/* --- CSS CHO TRANG CHECKOUT --- */
+
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #f4f4f5; /* Màu nền xám nhạt */
+  min-height: 80vh;
+}
+
+.checkout-card {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+}
+
+.checkout-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2rem;
+}
+
+.checkout-fieldset {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.checkout-fieldset legend {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0 0.5rem;
+  color: #374151;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-sizing: border-box; /* Quan trọng */
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.payment-method input[type="radio"] {
+  margin-right: 0.75rem;
+  height: 1.1rem;
+  width: 1.1rem;
+  cursor: pointer;
+}
+
+.payment-method label {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.checkout-submit-btn {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #8b5cf6; /* Màu tím (giống Navbar) */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.checkout-submit-btn:hover {
+  background-color: #7c3aed;
+}
+
+.checkout-submit-btn:disabled {
+  background-color: #a78bfa;
+  cursor: not-allowed;
+}
+
+/* --- STRIPE CARD ELEMENT STYLING --- */
+.stripe-form {
+  width: 100%;
+}
+
+.card-element-container {
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff;
+}
+
+.card-element-container .StripeElement {
+  padding: 0.5rem 0;
+}
+
+.card-element-container .StripeElement--focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.card-element-container .StripeElement--invalid {
+  border-color: #ef4444;
+}

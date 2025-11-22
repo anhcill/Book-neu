@@ -1,0 +1,16 @@
+.faq-page {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.faq-page h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.faq-page h3 {
+  margin-top: 14px;
+}
+.faq-page p {
+  margin: 6px 0;
+  color: #444;
+}

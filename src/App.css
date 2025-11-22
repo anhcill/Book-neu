@@ -1,0 +1,90 @@
+@import url('https://enztron-temp-deployed-branch.netlify.app/components.css');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+:root
+{
+    --dark-grey     : #2F4858;
+    --dark-grey-2   : #282c34;
+    --royal-blue    : #29517C;
+    --sky-blue      : #0e7490;
+    --bluish-white  : #F5F7F9;
+    --pure-white    : white;
+    --red-color     : #ca0e1d;
+    --background-color-dull-yellow: #e0e0d4;
+    --yellow-background-color     : #efe6e1;
+    --dull-grey     : #8f8f8f;
+    
+    /* Light Mode Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #2F4858;
+    --text-secondary: #666;
+    --border-color: #e0e7ff;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: #eee;
+    --text-secondary: #aaa;
+    --border-color: #2d3561;
+    --card-bg: #0f3460;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+html
+{
+    font-family: 'Comfortaa', cursive;
+}
+
+body
+{
+    font-family: 'Comfortaa', cursive;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html, body
+{
+    height: auto;
+    background-color: var(--bg-primary);
+}
+
+.App {
+    min-height: 100%;
+    text-align: center;
+    background-color: var(--bg-primary);
+    font-family: 'Comfortaa', cursive;
+}
+
+*::-webkit-scrollbar 
+{
+    height: 1em;
+}
+  
+*::-webkit-scrollbar-track 
+{
+    background: var(--light-grey);
+}
+  
+*::-webkit-scrollbar-thumb 
+{
+    background: var(--sky-blue);
+}
+
+a::after
+{
+    content: '';
+    display: block;
+    width: 0px;
+    height: 0px;
+    background: var(--dark-blue-color);
+}
+
+a:hover::after
+{
+    width: 0;
+}

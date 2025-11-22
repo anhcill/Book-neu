@@ -1,0 +1,479 @@
+.inventory-container {
+  padding: 2rem;
+  background: var(--background-secondary, #f5f5f5);
+  min-height: 100vh;
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.inventory-header h1 {
+  font-size: 2rem;
+  color: var(--text-primary, #1a1a1a);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.threshold-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.threshold-control label {
+  font-weight: 600;
+  color: var(--text-primary, #333);
+}
+
+.threshold-control select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Stats Cards */
+.inventory-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.stat-card.total .stat-icon {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.stat-card.in-stock .stat-icon {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 2rem;
+}
+
+.stat-card.low-stock .stat-icon {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.stat-card.out-stock .stat-icon {
+  background: #ffebee;
+  color: #c62828;
+  font-size: 2rem;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: var(--text-primary, #1a1a1a);
+  margin-bottom: 0.25rem;
+}
+
+.stat-card p {
+  color: var(--text-secondary, #666);
+  font-size: 0.95rem;
+}
+
+/* Stock Distribution */
+.stock-distribution {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.stock-distribution h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.distribution-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bar-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 60px;
+  gap: 1rem;
+  align-items: center;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text-primary, #333);
+}
+
+.bar {
+  height: 24px;
+  background: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.bar.out-of-stock .bar-fill {
+  background: linear-gradient(to right, #f44336, #e57373);
+}
+
+.bar.low-stock .bar-fill {
+  background: linear-gradient(to right, #ff9800, #ffb74d);
+}
+
+.bar.medium-stock .bar-fill {
+  background: linear-gradient(to right, #2196f3, #64b5f6);
+}
+
+.bar.high-stock .bar-fill {
+  background: linear-gradient(to right, #4caf50, #81c784);
+}
+
+/* Alert Sections */
+.alert-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.alert-section.critical {
+  border-left: 5px solid #f44336;
+}
+
+.alert-section.warning {
+  border-left: 5px solid #ff9800;
+}
+
+.alert-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary, #1a1a1a);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.alert-section.critical h2 {
+  color: #d32f2f;
+}
+
+.alert-section.warning h2 {
+  color: #f57c00;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-alert-card {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.product-alert-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.product-alert-card.critical {
+  border-color: #f44336;
+  background: linear-gradient(135deg, #ffebee 0%, #ffffff 100%);
+}
+
+.product-alert-card.warning {
+  border-color: #ff9800;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffffff 100%);
+}
+
+.product-alert-card img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-info h4 {
+  font-size: 1rem;
+  color: var(--text-primary, #1a1a1a);
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-info p {
+  color: var(--text-secondary, #666);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-info .category {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.stock-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.stock-count {
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.stock-count.critical {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.stock-count.warning {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.price {
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Stock Actions */
+.stock-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn-quick-update,
+.btn-increase,
+.btn-decrease,
+.btn-edit-stock {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+
+.btn-quick-update {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.btn-quick-update:hover {
+  background: #2e7d32;
+  color: white;
+}
+
+.btn-increase {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.btn-increase:hover {
+  background: #1976d2;
+  color: white;
+}
+
+.btn-decrease {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.btn-decrease:hover {
+  background: #c62828;
+  color: white;
+}
+
+.btn-edit-stock {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.btn-edit-stock:hover {
+  background: #667eea;
+  color: white;
+}
+
+.edit-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.edit-form input {
+  width: 80px;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.edit-form button {
+  padding: 0.5rem;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* No Alerts */
+.no-alerts {
+  background: white;
+  padding: 4rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.no-alerts-content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.no-alerts-icon {
+  font-size: 4rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.no-alerts h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary, #1a1a1a);
+  margin-bottom: 0.5rem;
+}
+
+.no-alerts p {
+  color: var(--text-secondary, #666);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .inventory-container {
+  background: #1a1a1a;
+}
+
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .stock-distribution,
+[data-theme="dark"] .alert-section,
+[data-theme="dark"] .no-alerts {
+  background: #2d2d2d;
+}
+
+[data-theme="dark"] .threshold-control select {
+  background: #2d2d2d;
+  border-color: #404040;
+  color: white;
+}
+
+[data-theme="dark"] .product-alert-card {
+  border-color: #404040;
+  background: #383838;
+}
+
+[data-theme="dark"] .product-alert-card.critical {
+  background: linear-gradient(135deg, #5d1f1a 0%, #2d2d2d 100%);
+}
+
+[data-theme="dark"] .product-alert-card.warning {
+  background: linear-gradient(135deg, #4a3324 0%, #2d2d2d 100%);
+}
+
+[data-theme="dark"] .edit-form input {
+  background: #383838;
+  border-color: #404040;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .inventory-container {
+    padding: 1rem;
+  }
+
+  .inventory-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .inventory-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-alert-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .stock-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .bar-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
