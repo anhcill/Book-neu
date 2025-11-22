@@ -7,8 +7,13 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import './Checkout.css'; 
 
-// Khởi tạo Stripe với publishable key
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || 'pk_test_51QRKqkP2xyJlD9KI1uZ9fYsXo4gYXPiOwZ3RsHNGYwTHlLjnSiIbPAqJWgxH0ywGwq6sEMDwI9BYt6K19h2R7EFB00gy7NQxnZ');
+// Khởi tạo Stripe với publishable key và error handling
+const stripePromise = loadStripe(
+    process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || 'pk_test_51QRKqkP2xyJlD9KI1uZ9fYsXo4gYXPiOwZ3RsHNGYwTHlLjnSiIbPAqJWgxH0ywGwq6sEMDwI9BYt6K19h2R7EFB00gy7NQxnZ'
+).catch((error) => {
+    console.error('Stripe loading error:', error);
+    return null; // Return null nếu load fail
+});
 
 // Component con xử lý Stripe form
 function StripeCheckoutForm({ shippingAddress, onSuccess, onError }) {
@@ -106,6 +111,16 @@ function Checkout() {
     const navigate = useNavigate();
     const { showToast } = useToast();
     const { userCart, dispatchUserCart } = useCart();
+    const [stripeLoadError, setStripeLoadError] = useState(false);
+
+    // Check Stripe loading status
+    useEffect(() => {
+        stripePromise.then((stripe) => {
+            if (!stripe) {
+                setStripeLoadError(true);
+            }
+        });
+    }, []);
 
     // Try to obtain token from opener (if this tab was opened from another tab)
     useEffect(() => {
@@ -312,13 +327,48 @@ function Checkout() {
 
                     {/* === PHẦN 3: NÚT XÁC NHẬN hoặc FORM STRIPE === */}
                     {paymentMethod === 'STRIPE' ? (
-                        <Elements stripe={stripePromise}>
-                            <StripeCheckoutForm
-                                shippingAddress={shippingAddress}
-                                onSuccess={handleStripeSuccess}
-                                onError={handleStripeError}
-                            />
-                        </Elements>
+                        stripeLoadError ? (
+                            <div style={{
+                                padding: '20px',
+                                backgroundColor: '#fff3cd',
+                                border: '1px solid #ffc107',
+                                borderRadius: '8px',
+                                marginTop: '15px'
+                            }}>
+                                <h4 style={{color: '#856404', marginBottom: '10px'}}>
+                                    ⚠️ {t('Không thể tải Stripe')}
+                                </h4>
+                                <p style={{color: '#856404', marginBottom: '10px'}}>
+                                    {t('Stripe bị chặn bởi Ad Blocker hoặc Extension. Vui lòng:')}
+                                </p>
+                                <ul style={{color: '#856404', marginLeft: '20px', marginBottom: '10px'}}>
+                                    <li>{t('Tắt Ad Blocker cho trang này')}</li>
+                                    <li>{t('Hoặc dùng chế độ ẩn danh (Incognito)')}</li>
+                                    <li>{t('Hoặc chọn phương thức thanh toán khác (VNPay/COD)')}</li>
+                                </ul>
+                                <button 
+                                    onClick={() => window.location.reload()} 
+                                    style={{
+                                        padding: '10px 20px',
+                                        backgroundColor: '#007bff',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '5px',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    {t('Tải lại trang')}
+                                </button>
+                            </div>
+                        ) : (
+                            <Elements stripe={stripePromise}>
+                                <StripeCheckoutForm
+                                    shippingAddress={shippingAddress}
+                                    onSuccess={handleStripeSuccess}
+                                    onError={handleStripeError}
+                                />
+                            </Elements>
+                        )
                     ) : (
                         <button 
                             type="submit" 

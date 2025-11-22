@@ -91,5 +91,11 @@
   "author": "Author",
   "description": "Description",
   "rating": "Rating",
-  "itemOutOfStock": "Item is currently out of stock"
+  "itemOutOfStock": "Item is currently out of stock",
+  "Không thể tải Stripe": "Unable to load Stripe",
+  "Stripe bị chặn bởi Ad Blocker hoặc Extension. Vui lòng:": "Stripe is blocked by Ad Blocker or Extension. Please:",
+  "Tắt Ad Blocker cho trang này": "Disable Ad Blocker for this site",
+  "Hoặc dùng chế độ ẩn danh (Incognito)": "Or use Incognito/Private mode",
+  "Hoặc chọn phương thức thanh toán khác (VNPay/COD)": "Or choose another payment method (VNPay/COD)",
+  "Tải lại trang": "Reload page"
 }
